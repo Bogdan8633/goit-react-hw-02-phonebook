@@ -1,0 +1,22 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.item {
+  display: flex;
+  width: 350px;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.name {
+  margin-right: 10px;
+}
+
+.number {
+  margin-right: auto;
+}
