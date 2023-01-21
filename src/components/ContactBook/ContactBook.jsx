@@ -3,20 +3,17 @@ import styles from './contactBook.module.css';
 
 const ContactBook = ({ contacts, onDeleteContact }) => {
   return (
-    <>
-      <h2>Contacts</h2>
-      <ul className={styles.list}>
-        {contacts.map(({ id, name, number }) => (
-          <li className={styles.item} key={id}>
-            <p className={styles.name}>{name}:</p>
-            <p className={styles.number}>{number}</p>
-            <button type="button" onClick={() => onDeleteContact(id)}>
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul className={styles.list}>
+      {contacts.map(({ id, name, number }) => (
+        <li className={styles.item} key={id}>
+          <p className={styles.name}>{name}:</p>
+          <p className={styles.number}>{number}</p>
+          <button type="button" onClick={() => onDeleteContact(id)}>
+            Delete
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 };
 

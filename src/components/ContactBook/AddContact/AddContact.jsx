@@ -29,7 +29,6 @@ class AddContact extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmt} className={styles.form}>
-        <h2>Phonebook</h2>
         <input
           value={this.state.name}
           onChange={this.handleChangeName}
