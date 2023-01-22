@@ -19,12 +19,11 @@ class App extends Component {
     const normalaizedName = name.toLowerCase();
 
     if (
-      this.state.contacts.forEach(contact => {
-        if (contact.name.toLowerCase() === normalaizedName) {
-          alert(`${name} is already in contacts`);
-        }
-      })
+      this.state.contacts.find(
+        contact => contact.name.toLowerCase() === normalaizedName
+      )
     ) {
+      alert(`${name} is already in contacts`);
       return;
     }
 
@@ -58,7 +57,7 @@ class App extends Component {
   };
 
   render() {
-    const { contacts, filter } = this.state;
+    const { filter } = this.state;
 
     const visibleContacts = this.getVisibleContacts();
 

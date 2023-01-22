@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './addContact.module.css';
 
@@ -8,18 +9,13 @@ class AddContact extends Component {
     number: '',
   };
 
-  handleChangeName = e => {
-    this.setState({ name: e.currentTarget.value });
-  };
-
-  handleChangeNumber = e => {
-    this.setState({ number: e.currentTarget.value });
+  handleChange = e => {
+    const { name, value } = e.currentTarget;
+    this.setState({ [name]: value });
   };
 
   handleSubmt = e => {
     e.preventDefault();
-
-    // console.log(this.state);
 
     this.props.onSubmit(this.state.name, this.state.number);
 
@@ -31,7 +27,7 @@ class AddContact extends Component {
       <form onSubmit={this.handleSubmt} className={styles.form}>
         <input
           value={this.state.name}
-          onChange={this.handleChangeName}
+          onChange={this.handleChange}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -40,7 +36,7 @@ class AddContact extends Component {
         />
         <input
           value={this.state.number}
-          onChange={this.handleChangeNumber}
+          onChange={this.handleChange}
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -56,3 +52,7 @@ class AddContact extends Component {
 }
 
 export default AddContact;
+
+AddContact.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
