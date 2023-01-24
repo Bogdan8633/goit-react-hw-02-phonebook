@@ -15,7 +15,7 @@ class App extends Component {
     filter: '',
   };
 
-  addNewContact = (name, number) => {
+  addNewContact = ({ name, number }) => {
     const normalaizedName = name.toLowerCase();
 
     if (
@@ -24,7 +24,7 @@ class App extends Component {
       )
     ) {
       alert(`${name} is already in contacts`);
-      return;
+      return false;
     }
 
     const contact = {
@@ -36,6 +36,7 @@ class App extends Component {
     this.setState(prevState => ({
       contacts: [...prevState.contacts, contact],
     }));
+    return true;
   };
 
   deleteContact = contactId => {

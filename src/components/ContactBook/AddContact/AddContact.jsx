@@ -9,17 +9,23 @@ class AddContact extends Component {
     number: '',
   };
 
-  handleChange = e => {
-    const { name, value } = e.currentTarget;
-    this.setState({ [name]: value });
-  };
-
   handleSubmt = e => {
     e.preventDefault();
 
-    this.props.onSubmit(this.state.name, this.state.number);
+    const { onSubmit } = this.props;
+    const result = onSubmit({ ...this.state });
+    if (result) {
+      this.reset();
+    }
+  };
 
+  reset() {
     this.setState({ name: '', number: '' });
+  }
+
+  handleChange = e => {
+    const { name, value } = e.currentTarget;
+    this.setState({ [name]: value });
   };
 
   render() {
