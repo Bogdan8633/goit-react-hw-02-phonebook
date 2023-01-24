@@ -7,11 +7,10 @@
   margin-top: 30px;
 }
 
-.item {
+/* .item {
   display: flex;
   width: 350px;
   align-items: center;
-  /* justify-content: space-between; */
 }
 
 .name {
@@ -20,4 +19,4 @@
 
 .number {
   margin-right: auto;
-}
+} */
